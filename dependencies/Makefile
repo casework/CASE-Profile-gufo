@@ -18,7 +18,9 @@ SHELL := /bin/bash
 
 top_srcdir := $(shell cd .. ; pwd)
 
-uco_srcdir := $(top_srcdir)/dependencies/UCO
+case_srcdir := CASE
+
+uco_srcdir := $(case_srcdir)/dependencies/UCO
 
 RDF_TOOLKIT_JAR := $(uco_srcdir)/lib/rdf-toolkit.jar
 
@@ -65,7 +67,7 @@ example.ttl: \
   $(top_srcdir)/.venv.done.log
 	source $(top_srcdir)/venv/bin/activate \
 	  && pyshacl \
-	    --shacl UCO/ontology/owl/owl.ttl \
+	    --shacl $(uco_srcdir)/ontology/owl/owl.ttl \
 	    $<
 	java -jar $(RDF_TOOLKIT_JAR) \
 	  --inline-blank-nodes \

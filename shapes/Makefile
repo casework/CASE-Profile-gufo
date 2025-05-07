@@ -18,7 +18,9 @@ SHELL := /bin/bash
 
 top_srcdir := $(shell cd .. ; pwd)
 
-uco_srcdir := $(top_srcdir)/dependencies/UCO
+case_srcdir := $(top_srcdir)/dependencies/CASE
+
+uco_srcdir := $(case_srcdir)/dependencies/UCO
 
 test_pys := $(wildcard test_*.py)
 
@@ -40,16 +42,16 @@ all: \
 	touch $@
 
 catalog-v001.xml: \
+  $(case_srcdir)/ontology/master/catalog-v001.xml \
   $(top_srcdir)/.venv.done.log \
   $(top_srcdir)/etc/domain_directories.tsv \
   $(top_srcdir)/etc/dependency_files.tsv \
   $(ttl_basenames) \
-  $(uco_srcdir)/ontology/uco/master/catalog-v001.xml \
   $(uco_srcdir)/src/create-catalog-v001.xml.py
 	rm -f _$@
 	source $(top_srcdir)/venv/bin/activate \
 	  && python3 $(uco_srcdir)/src/create-catalog-v001.xml.py \
-	    --catalog-xml $(uco_srcdir)/ontology/uco/master/catalog-v001.xml \
+	    --catalog-xml $(case_srcdir)/ontology/master/catalog-v001.xml \
 	    _$@ \
 	    $(top_srcdir)/etc/domain_directories.tsv \
 	    $(top_srcdir)/etc/dependency_files.tsv \

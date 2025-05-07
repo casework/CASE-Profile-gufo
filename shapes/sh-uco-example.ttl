@@ -1,4 +1,4 @@
-# imports: http://example.org/ontology/uco-example
+# imports: http://example.org/ontology/case-example
 
 @prefix drafting: <http://example.org/ontology/drafting/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -12,7 +12,7 @@
 <http://example.org/shapes/sh-uco-example>
 	a owl:Ontology ;
 	rdfs:comment "This shapes file should be filled in for at least mapped classes and properties when the upstream ontology does not provide SHACL shapes, or when draft concepts are added to the profile ontology."@en ;
-	owl:imports <http://example.org/ontology/uco-example> ;
+	owl:imports <http://example.org/ontology/case-example> ;
 	.
 
 sh-owl-abox:disjoint-constraint

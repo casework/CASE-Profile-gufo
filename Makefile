@@ -49,7 +49,7 @@ all: \
 	git submodule update \
 	  --init
 	$(MAKE) \
-	  --directory dependencies/UCO \
+	  --directory dependencies/CASE \
 	  .git_submodule_init.done.log \
 	  .lib.done.log
 	touch $@
@@ -169,7 +169,7 @@ check-supply-chain-cdo-profile:
 	  _CHECK_SUPPLY_CHAIN_upstream \
 	  || git remote add \
 	    _CHECK_SUPPLY_CHAIN_upstream \
-	    https://github.com/ucoProject/UCO-Profile-Example.git
+	    https://github.com/casework/CASE-Profile-Example.git
 	git fetch \
 	  _CHECK_SUPPLY_CHAIN_upstream
 	@echo "DEBUG:Makefile:$$(git merge-base _CHECK_SUPPLY_CHAIN_upstream/base HEAD) (merge-base)" >&2

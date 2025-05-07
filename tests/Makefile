@@ -18,7 +18,9 @@ SHELL := /bin/bash
 
 top_srcdir := $(shell cd .. ; pwd)
 
-uco_srcdir := $(top_srcdir)/dependencies/UCO
+case_srcdir := $(top_srcdir)/dependencies/CASE
+
+uco_srcdir := $(case_srcdir)/dependencies/UCO
 
 test_pys := $(wildcard test_*.py)
 
@@ -90,11 +92,11 @@ monolithic.ttl: \
   $(profile_ttls) \
   $(shape_ttls)
 	$(MAKE) \
-	  --directory $(uco_srcdir) \
+	  --directory $(case_srcdir) \
 	  .venv.done.log
 	$(MAKE) \
-	  --directory $(uco_srcdir)/tests \
-	  uco_monolithic.ttl
+	  --directory $(case_srcdir)/tests \
+	  case_monolithic.ttl
 	source $(top_srcdir)/venv/bin/activate \
 	  && rdfpipe \
 	    --output-format turtle \
@@ -103,7 +105,7 @@ monolithic.ttl: \
 	    $(shape_ttls) \
 	    $(uco_srcdir)/dependencies/collections-ontology/collections.owl \
 	    $(uco_srcdir)/dependencies/error/docs/current/error.ttl \
-	    $(uco_srcdir)/tests/uco_monolithic.ttl \
+	    $(case_srcdir)/tests/case_monolithic.ttl \
 	    > _$@
 	source $(top_srcdir)/venv/bin/activate \
 	  && pyshacl \

@@ -1,2 +1,3 @@
 https://example.org/	${top_srcdir}/ontology/
-https://ontology.unifiedcyberontology.org/	${top_srcdir}/dependencies/UCO/ontology/
+https://ontology.caseontology.org/	${top_srcdir}/dependencies/CASE/ontology/
+https://ontology.unifiedcyberontology.org/	${top_srcdir}/dependencies/CASE/dependencies/UCO/ontology/
