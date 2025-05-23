@@ -23,6 +23,7 @@
     <uri id="User Entered Import Resolution" uri="../dependencies/CASE/ontology/investigation/investigation.ttl" name="https://ontology.caseontology.org/case/investigation/1.3.0"/>
     <uri id="User Entered Import Resolution" uri="../dependencies/CASE/ontology/master/case.ttl" name="https://ontology.caseontology.org/case/case/1.3.0"/>
     <uri id="User Entered Import Resolution" uri="../dependencies/CASE/ontology/vocabulary/vocabulary.ttl" name="https://ontology.caseontology.org/case/vocabulary/1.3.0"/>
-    <uri id="User Entered Import Resolution" uri="../dependencies/example.ttl" name="http://example.org/ontology/example/0.0.1"/>
+    <uri id="User Entered Import Resolution" uri="../dependencies/UCO-Profile-Example/dependencies/example.ttl" name="http://example.org/ontology/example/0.0.1"/>
+    <uri id="User Entered Import Resolution" uri="../dependencies/UCO-Profile-Example/ontology/uco-example.ttl" name="http://example.org/ontology/uco-example"/>
     <uri id="User Entered Import Resolution" uri="case-example.ttl" name="http://example.org/ontology/case-example"/>
 </catalog>
