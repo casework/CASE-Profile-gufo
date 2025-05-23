@@ -33,6 +33,7 @@ $(RDF_TOOLKIT_JAR):
 	@test -r $@
 
 catalog-v001.xml: \
+  $(case_srcdir)/ontology/master/catalog-v001.xml \
   $(top_srcdir)/.venv.done.log \
   $(top_srcdir)/etc/domain_directories.tsv \
   $(top_srcdir)/etc/dependency_files.tsv \
@@ -41,6 +42,7 @@ catalog-v001.xml: \
 	rm -f _$@
 	source $(top_srcdir)/venv/bin/activate \
 	  && python3 $(uco_srcdir)/src/create-catalog-v001.xml.py \
+	    --catalog-xml $(case_srcdir)/ontology/master/catalog-v001.xml \
 	    _$@ \
 	    $(top_srcdir)/etc/domain_directories.tsv \
 	    $(top_srcdir)/etc/dependency_files.tsv \
@@ -56,26 +58,7 @@ check: \
 clean:
 	@rm -f \
 	  catalog-v001.xml \
-	  example.ttl \
 	  imports-transitive.ttl
-
-# TODO: Adapt this recipe to normalize a submodule's file, or downloaded
-# file, in the same manner as CDO ontologies are normalized.
-example.ttl: \
-  example/example.owl \
-  $(RDF_TOOLKIT_JAR) \
-  $(top_srcdir)/.venv.done.log
-	source $(top_srcdir)/venv/bin/activate \
-	  && pyshacl \
-	    --shacl $(uco_srcdir)/ontology/owl/owl.ttl \
-	    $<
-	java -jar $(RDF_TOOLKIT_JAR) \
-	  --inline-blank-nodes \
-	  --source $< \
-	  --source-format rdf-xml \
-	  --target _$@ \
-	  --target-format turtle
-	mv _$@ $@
 
 # This recipe intentionally does not incorporate CDO ontologies (UCO,
 # CASE, etc.), to avoid redundant imports between multiple profiles.
@@ -85,7 +68,9 @@ example.ttl: \
 # command but for RDF graph files, will combine all recipe dependencies
 # into one file, using the $^ ("all dependencies") Make variable.
 imports-transitive.ttl: \
-  example.ttl
+  UCO-Profile-Example/dependencies/example.ttl \
+  UCO-Profile-Example/dependencies/imports-transitive.ttl \
+  UCO-Profile-Example/ontology/uco-example.ttl
 	source $(top_srcdir)/venv/bin/activate \
 	  && rdfpipe \
 	    --output-format turtle \

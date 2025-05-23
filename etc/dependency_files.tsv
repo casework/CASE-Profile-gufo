@@ -1,2 +1,4 @@
-http://example.org/ontology/example/0.0.1	${top_srcdir}/dependencies/example.ttl
-http://example.org/shapes/sh-uco-example	${top_srcdir}/shapes/sh-uco-example.ttl
+http://example.org/ontology/example/0.0.1	${top_srcdir}/dependencies/UCO-Profile-Example/dependencies/example.ttl
+http://example.org/ontology/uco-example	${top_srcdir}/dependencies/UCO-Profile-Example/ontology/uco-example.ttl
+http://example.org/shapes/sh-case-example	${top_srcdir}/shapes/sh-case-example.ttl
+http://example.org/shapes/sh-uco-example	${top_srcdir}/dependencies/UCO-Profile-Example/shapes/sh-uco-example.ttl
