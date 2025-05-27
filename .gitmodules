@@ -5,4 +5,4 @@
 [submodule "dependencies/UCO-Profile-Example"]
 	path = dependencies/UCO-Profile-Example
 	url = https://github.com/ucoProject/UCO-Profile-Example.git
-	branch = main
+	branch = base
