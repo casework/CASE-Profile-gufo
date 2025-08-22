@@ -16,6 +16,8 @@
 
 SHELL := /bin/bash
 
+PYTHON3 ?= python3
+
 top_srcdir := $(shell cd .. ; pwd)
 
 case_srcdir := $(top_srcdir)/dependencies/CASE
@@ -92,6 +94,7 @@ monolithic.ttl: \
   $(profile_ttls) \
   $(shape_ttls)
 	$(MAKE) \
+	  PYTHON3=$(PYTHON3) \
 	  --directory $(case_srcdir) \
 	  .venv.done.log
 	$(MAKE) \
