@@ -16,8 +16,6 @@
 
 SHELL := /bin/bash
 
-PYTHON3 ?= python3
-
 top_srcdir := $(shell cd .. ; pwd)
 
 case_srcdir := $(top_srcdir)/dependencies/CASE
@@ -26,34 +24,32 @@ uco_srcdir := $(case_srcdir)/dependencies/UCO
 
 test_pys := $(wildcard test_*.py)
 
-profile_ttls := $(wildcard $(top_srcdir)/ontology/uco-*.ttl)
-
-shape_ttls := $(wildcard $(top_srcdir)/shapes/sh-*.ttl)
-
 all: \
-  monolithic.ttl
+  generated-exemplars-expanded.ttl
 
 .pyshacl.done.log: \
-  exemplars-expanded.ttl \
-  monolithic.ttl
+  $(top_srcdir)/ontology/generated-ontology.ttl \
+  $(top_srcdir)/shapes/generated-shapes.ttl \
+  generated-exemplars-expanded.ttl
 	source $(top_srcdir)/venv/bin/activate \
 	  && pyshacl \
-	    --metashacl \
-	    --ont-graph monolithic.ttl \
-	    --shacl monolithic.ttl \
-	    exemplars-expanded.ttl
+	    --ont-graph $(top_srcdir)/ontology/generated-ontology.ttl \
+	    --shacl $(top_srcdir)/shapes/generated-shapes.ttl \
+	    generated-exemplars-expanded.ttl
 	touch $@
 
 .pytest.done.log: \
   $(test_pys) \
-  exemplars.ttl \
-  monolithic.ttl
+  $(top_srcdir)/ontology/generated-local.ttl \
+  $(top_srcdir)/ontology/generated-ontology.ttl \
+  exemplars.ttl
 	source $(top_srcdir)/venv/bin/activate \
 	  && pytest \
 	    --log-level=DEBUG
 	touch $@
 
 check: \
+  generated-monolithic.ttl \
   .pytest.done.log \
   .pyshacl.done.log
 
@@ -62,24 +58,22 @@ clean:
 	  __pycache__
 	@rm -f \
 	  .*.done.log \
-	  exemplars-entailment.ttl \
-	  exemplars-expanded.ttl \
-	  monolithic.ttl
+	  generated-*
 
-exemplars-entailment.ttl: \
+generated-exemplars-entailment.ttl: \
   $(top_srcdir)/.venv.done.log \
+  $(top_srcdir)/ontology/generated-ontology.ttl \
   $(top_srcdir)/src/entail.py \
-  exemplars.ttl \
-  monolithic.ttl
+  exemplars.ttl
 	source $(top_srcdir)/venv/bin/activate \
 	  && python3 $(top_srcdir)/src/entail.py \
 	    _$@ \
 	    exemplars.ttl \
-	    monolithic.ttl
+	    $(top_srcdir)/ontology/generated-ontology.ttl
 	mv _$@ $@
 
-exemplars-expanded.ttl: \
-  exemplars-entailment.ttl
+generated-exemplars-expanded.ttl: \
+  generated-exemplars-entailment.ttl
 	source $(top_srcdir)/venv/bin/activate \
 	  && rdfpipe \
 	    --output-format turtle \
@@ -88,27 +82,17 @@ exemplars-expanded.ttl: \
 	    > _$@
 	mv _$@ $@
 
-monolithic.ttl: \
+# Cross-review OWL and SHACL specifications together.
+generated-monolithic.ttl: \
   $(top_srcdir)/.venv.done.log \
-  $(top_srcdir)/dependencies/imports-transitive.ttl \
-  $(profile_ttls) \
-  $(shape_ttls)
-	$(MAKE) \
-	  PYTHON3=$(PYTHON3) \
-	  --directory $(case_srcdir) \
-	  .venv.done.log
-	$(MAKE) \
-	  --directory $(case_srcdir)/tests \
-	  case_monolithic.ttl
+  $(top_srcdir)/ontology/generated-ontology.ttl \
+  $(top_srcdir)/shapes/generated-shapes.ttl \
+  $(uco_srcdir)/ontology/owl/owl.ttl
 	source $(top_srcdir)/venv/bin/activate \
 	  && rdfpipe \
 	    --output-format turtle \
-	    $(top_srcdir)/dependencies/imports-transitive.ttl \
-	    $(profile_ttls) \
-	    $(shape_ttls) \
-	    $(uco_srcdir)/dependencies/collections-ontology/collections.owl \
-	    $(uco_srcdir)/dependencies/error/docs/current/error.ttl \
-	    $(case_srcdir)/tests/case_monolithic.ttl \
+	    $(top_srcdir)/ontology/generated-ontology.ttl \
+	    $(top_srcdir)/shapes/generated-shapes.ttl \
 	    > _$@
 	source $(top_srcdir)/venv/bin/activate \
 	  && pyshacl \
