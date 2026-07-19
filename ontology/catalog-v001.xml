@@ -43,5 +43,5 @@
     <uri id="User Entered Import Resolution" uri="../dependencies/CASE/ontology/master/case.ttl" name="https://ontology.caseontology.org/case/case"/>
     <uri id="User Entered Import Resolution" uri="../dependencies/CASE/ontology/vocabulary/vocabulary.ttl" name="https://ontology.caseontology.org/case/vocabulary"/>
     <uri id="User Entered Import Resolution" uri="../dependencies/CASE/ontology/vocabulary/vocabulary.ttl" name="https://ontology.caseontology.org/case/vocabulary/1.4.0"/>
-    <uri id="User Entered Import Resolution" uri="../dependencies/UCO-Profile-Example/dependencies/CDO-Shapes-Example/dependencies/formatted-example.ttl" name="http://example.org/ontology/example"/>
+    <uri id="User Entered Import Resolution" uri="../dependencies/UCO-Profile-gufo/dependencies/CDO-Shapes-gufo/dependencies/formatted-gufo.ttl" name="http://purl.org/nemo/gufo#"/>
 </catalog>

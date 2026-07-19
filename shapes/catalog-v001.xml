@@ -44,10 +44,10 @@
     <uri id="User Entered Import Resolution" uri="../dependencies/CASE/ontology/master/case.ttl" name="https://ontology.caseontology.org/case/case/1.4.0"/>
     <uri id="User Entered Import Resolution" uri="../dependencies/CASE/ontology/vocabulary/vocabulary.ttl" name="https://ontology.caseontology.org/case/vocabulary"/>
     <uri id="User Entered Import Resolution" uri="../dependencies/CASE/ontology/vocabulary/vocabulary.ttl" name="https://ontology.caseontology.org/case/vocabulary/1.4.0"/>
-    <uri id="User Entered Import Resolution" uri="../dependencies/UCO-Profile-Example/dependencies/CDO-Shapes-Example/dependencies/formatted-example.ttl" name="http://example.org/ontology/example/0.0.1"/>
-    <uri id="User Entered Import Resolution" uri="../dependencies/UCO-Profile-Example/dependencies/CDO-Shapes-Example/shapes/sh-example.ttl" name="http://example.org/shapes/sh-example"/>
-    <uri id="User Entered Import Resolution" uri="../dependencies/UCO-Profile-Example/ontology/uco-example.ttl" name="http://example.org/ontology/uco-example"/>
-    <uri id="User Entered Import Resolution" uri="../dependencies/UCO-Profile-Example/shapes/sh-uco-example.ttl" name="http://example.org/shapes/sh-uco-example"/>
-    <uri id="User Entered Import Resolution" uri="../ontology/case-example.ttl" name="http://example.org/ontology/case-example"/>
-    <uri id="User Entered Import Resolution" uri="sh-case-example.ttl" name="http://example.org/shapes/sh-case-example"/>
+    <uri id="User Entered Import Resolution" uri="../dependencies/UCO-Profile-gufo/dependencies/CDO-Shapes-gufo/dependencies/formatted-gufo.ttl" name="http://purl.org/nemo/gufo#/1.0.0"/>
+    <uri id="User Entered Import Resolution" uri="../dependencies/UCO-Profile-gufo/dependencies/CDO-Shapes-gufo/shapes/sh-gufo.ttl" name="http://example.org/shapes/sh-gufo"/>
+    <uri id="User Entered Import Resolution" uri="../dependencies/UCO-Profile-gufo/ontology/uco-gufo.ttl" name="http://example.org/ontology/uco-gufo"/>
+    <uri id="User Entered Import Resolution" uri="../dependencies/UCO-Profile-gufo/shapes/sh-uco-gufo.ttl" name="http://example.org/shapes/sh-uco-gufo"/>
+    <uri id="User Entered Import Resolution" uri="../ontology/case-gufo.ttl" name="http://example.org/ontology/case-gufo"/>
+    <uri id="User Entered Import Resolution" uri="sh-case-gufo.ttl" name="http://example.org/shapes/sh-case-gufo"/>
 </catalog>
