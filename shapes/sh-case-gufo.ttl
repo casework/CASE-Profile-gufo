@@ -1,5 +1,5 @@
-# imports: http://example.org/ontology/case-example
-# imports: http://example.org/shapes/sh-uco-example
+# imports: http://example.org/ontology/case-gufo
+# imports: http://example.org/shapes/sh-uco-gufo
 
 @prefix drafting: <http://example.org/ontology/drafting/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -9,12 +9,12 @@
 @prefix sh-case-example: <http://example.org/shapes/sh-case-example/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://example.org/shapes/sh-case-example>
+<http://example.org/shapes/sh-case-gufo>
 	a owl:Ontology ;
 	rdfs:comment "This shapes file should be filled in for at least mapped classes and properties when the upstream ontology does not provide SHACL shapes, or when draft concepts are added to the profile ontology."@en ;
 	owl:imports
-		<http://example.org/ontology/case-example> ,
-		<http://example.org/shapes/sh-uco-example>
+		<http://example.org/ontology/case-gufo> ,
+		<http://example.org/shapes/sh-uco-gufo>
 		;
 	.
 

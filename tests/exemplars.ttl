@@ -1,4 +1,4 @@
-# imports: http://example.org/ontology/case-example
+# imports: http://example.org/ontology/case-gufo
 
 @prefix drafting: <http://example.org/ontology/drafting/> .
 @prefix kb: <http://example.org/kb/> .
@@ -12,8 +12,8 @@
 <http://example.org/kb>
 	a owl:Ontology ;
 	rdfs:comment "This knowledge base instantiates each of the mapped classes and properties, so SHACL shapes can perform a review for inconsistencies in the mapping between CASE and the mapped ontology."@en ;
-	owl:imports <http://example.org/ontology/case-example> ;
-	sh:shapesGraph <http://example.org/shapes/sh-case-example> ;
+	owl:imports <http://example.org/ontology/case-gufo> ;
+	sh:shapesGraph <http://example.org/shapes/sh-case-gufo> ;
 	.
 
 kb:UcoObject-24cf6699-3cb6-47fa-9f62-c972b0971752

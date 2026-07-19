@@ -2,7 +2,7 @@
 	path = dependencies/CASE
 	url = https://github.com/casework/CASE.git
 	branch = master
-[submodule "dependencies/UCO-Profile-Example"]
-	path = dependencies/UCO-Profile-Example
-	url = https://github.com/ucoProject/UCO-Profile-Example.git
-	branch = base
+[submodule "dependencies/UCO-Profile-gufo"]
+	path = dependencies/UCO-Profile-gufo
+	url = https://github.com/ucoProject/UCO-Profile-gufo.git
+	branch = main
