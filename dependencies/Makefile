@@ -30,7 +30,8 @@ $(case_srcdir)/.venv.done.log:
 	  .venv.done.log
 
 $(case_srcdir)/tests/case_monolithic.ttl: \
-  $(case_srcdir)/.venv.done.log
+  $(case_srcdir)/.venv.done.log \
+  $(case_srcdir)/ontology/master/case.ttl
 	$(MAKE) \
 	  --directory $(case_srcdir)/tests \
 	  case_monolithic.ttl
