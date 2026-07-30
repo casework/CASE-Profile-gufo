@@ -28,7 +28,7 @@ generated_dependencies_ttls := \
 
 test_pys := $(wildcard test_*.py)
 
-ttl_basenames := $(wildcard uco-*.ttl)
+ttl_basenames := $(wildcard case-*.ttl)
 
 all: \
   catalog-v001.xml

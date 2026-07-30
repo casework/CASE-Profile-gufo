@@ -41,7 +41,11 @@
     <uri id="User Entered Import Resolution" uri="../dependencies/CASE/ontology/investigation/investigation.ttl" name="https://ontology.caseontology.org/case/investigation"/>
     <uri id="User Entered Import Resolution" uri="../dependencies/CASE/ontology/investigation/investigation.ttl" name="https://ontology.caseontology.org/case/investigation/1.5.0"/>
     <uri id="User Entered Import Resolution" uri="../dependencies/CASE/ontology/master/case.ttl" name="https://ontology.caseontology.org/case/case"/>
+    <uri id="User Entered Import Resolution" uri="../dependencies/CASE/ontology/master/case.ttl" name="https://ontology.caseontology.org/case/case/1.5.0"/>
     <uri id="User Entered Import Resolution" uri="../dependencies/CASE/ontology/vocabulary/vocabulary.ttl" name="https://ontology.caseontology.org/case/vocabulary"/>
     <uri id="User Entered Import Resolution" uri="../dependencies/CASE/ontology/vocabulary/vocabulary.ttl" name="https://ontology.caseontology.org/case/vocabulary/1.5.0"/>
     <uri id="User Entered Import Resolution" uri="../dependencies/UCO-Profile-gufo/dependencies/CDO-Shapes-gufo/dependencies/formatted-gufo.ttl" name="http://purl.org/nemo/gufo#"/>
+    <uri id="User Entered Import Resolution" uri="../dependencies/UCO-Profile-gufo/dependencies/CDO-Shapes-gufo/dependencies/formatted-gufo.ttl" name="http://purl.org/nemo/gufo#/1.0.0"/>
+    <uri id="User Entered Import Resolution" uri="../dependencies/UCO-Profile-gufo/ontology/uco-gufo.ttl" name="http://example.org/ontology/uco-gufo"/>
+    <uri id="User Entered Import Resolution" uri="case-gufo.ttl" name="http://example.org/ontology/case-gufo"/>
 </catalog>
