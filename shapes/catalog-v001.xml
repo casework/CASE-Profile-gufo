@@ -45,6 +45,7 @@
     <uri id="User Entered Import Resolution" uri="../dependencies/CASE/ontology/vocabulary/vocabulary.ttl" name="https://ontology.caseontology.org/case/vocabulary"/>
     <uri id="User Entered Import Resolution" uri="../dependencies/CASE/ontology/vocabulary/vocabulary.ttl" name="https://ontology.caseontology.org/case/vocabulary/1.5.0"/>
     <uri id="User Entered Import Resolution" uri="../dependencies/UCO-Profile-gufo/dependencies/CDO-Shapes-gufo/dependencies/formatted-gufo.ttl" name="http://purl.org/nemo/gufo#/1.0.0"/>
+    <uri id="User Entered Import Resolution" uri="../dependencies/UCO-Profile-gufo/dependencies/CDO-Shapes-gufo/dependencies/formatted-gufoshapes.ttl" name="https://w3id.org/nemo/gufoshapes#"/>
     <uri id="User Entered Import Resolution" uri="../dependencies/UCO-Profile-gufo/dependencies/CDO-Shapes-gufo/shapes/sh-gufo.ttl" name="http://example.org/shapes/sh-gufo"/>
     <uri id="User Entered Import Resolution" uri="../dependencies/UCO-Profile-gufo/ontology/uco-gufo.ttl" name="http://example.org/ontology/uco-gufo"/>
     <uri id="User Entered Import Resolution" uri="../dependencies/UCO-Profile-gufo/shapes/sh-uco-gufo.ttl" name="http://example.org/shapes/sh-uco-gufo"/>
