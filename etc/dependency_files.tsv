@@ -4,3 +4,4 @@ http://example.org/shapes/sh-case-gufo	${top_srcdir}/shapes/sh-case-gufo.ttl
 http://example.org/shapes/sh-gufo	${top_srcdir}/dependencies/UCO-Profile-gufo/dependencies/CDO-Shapes-gufo/shapes/sh-gufo.ttl
 http://example.org/shapes/sh-uco-gufo	${top_srcdir}/dependencies/UCO-Profile-gufo/shapes/sh-uco-gufo.ttl
 http://purl.org/nemo/gufo#/1.0.0	${top_srcdir}/dependencies/UCO-Profile-gufo/dependencies/CDO-Shapes-gufo/dependencies/formatted-gufo.ttl
+https://w3id.org/nemo/gufoshapes#	${top_srcdir}/dependencies/UCO-Profile-gufo/dependencies/CDO-Shapes-gufo/dependencies/formatted-gufoshapes.ttl
