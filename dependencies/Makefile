@@ -23,6 +23,10 @@ case_srcdir := CASE
 all: \
   $(case_srcdir)/tests/case_monolithic.ttl
 
+.PHONY: \
+  check-supply-chain \
+  check-supply-chain-UCO-Profile-Example
+
 $(case_srcdir)/.venv.done.log:
 	$(MAKE) \
 	  PYTHON3=$(PYTHON3) \
@@ -38,5 +42,20 @@ $(case_srcdir)/tests/case_monolithic.ttl: \
 
 check: \
   all
+
+# TODO: The check-supply-chain recipes should be written to descend into
+# each submodule tracking a CDO (/UCO, etc.) repository and run its
+# supply chain rule.  This recursive check is expected to be called most
+# typically by the top_srcdir recipe check-supply-chain-dependencies.
+check-supply-chain: \
+  check-supply-chain-UCO-Profile-Example
+
+check-supply-chain-UCO-Profile-Example:
+	$(MAKE) \
+	  --directory UCO-Profile-Example \
+	  check-supply-chain-dependencies
+	$(MAKE) \
+	  --directory UCO-Profile-Example \
+	  check-supply-chain
 
 clean:
