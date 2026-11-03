@@ -1,0 +1,18 @@
+PREFIX drafting: <http://example.org/ontology/drafting/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX uco-core: <https://ontology.unifiedcyberontology.org/uco/core/>
+SELECT DISTINCT ?lChargeName ?lStatuteLabel
+WHERE {
+	?nCharge
+		uco-core:name ?lChargeName ;
+		drafting:statuteCitation ?nStatute ;
+		.
+	?nOtherCharge
+		drafting:statuteCitation ?nStatute ;
+		.
+	?nStatute
+		rdfs:label ?lStatuteLabel ;
+		.
+	FILTER (?nCharge != ?nOtherCharge)
+}
+ORDER BY ?nCharge ?lStatuteLabel

@@ -22,7 +22,8 @@ example_ttls := $(wildcard example-*.ttl)
 
 validation_done_logs := $(foreach example_ttl,$(example_ttls),.$(example_ttl).validation.done.log)
 
-all:
+all: \
+  query-CASE-Issue-214-CQ1.json
 
 .example-%.validation.done.log: \
   example-% \
@@ -51,3 +52,22 @@ check: \
 clean:
 	@rm -f \
 	  .*.done.log
+
+query-%.json: \
+  query-%.sparql \
+  $(example_ttls) \
+  $(top_srcdir)/.venv.done.log \
+  $(top_srcdir)/ontology/generated-ontology.ttl \
+  $(top_srcdir)/shapes/generated-shapes.ttl
+	source $(top_srcdir)/venv/bin/activate \
+	  && sparqlquery \
+	    --format json \
+	    --queryfile $< \
+	    $(example_ttls) \
+	    > __$@
+	python3 -m json.tool \
+	  --sort-keys \
+	  __$@ \
+	  _$@
+	rm __$@
+	mv _$@ $@

@@ -2,9 +2,11 @@
 # imports: https://ontology.caseontology.org/case/case/1.5.0
 
 @prefix drafting: <http://example.org/ontology/drafting/> .
+@prefix gufo: <http://purl.org/nemo/gufo#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh-case-gufo: <http://example.org/shapes/sh-case-gufo/> .
 @prefix uco-core: <https://ontology.unifiedcyberontology.org/uco/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -14,5 +16,43 @@
 		<http://example.org/ontology/uco-gufo> ,
 		<https://ontology.caseontology.org/case/case/1.5.0>
 		;
+	.
+
+drafting:CriminalCharge
+	a
+		gufo:Kind ,
+		owl:Class
+		;
+	rdfs:subClassOf
+		gufo:Object ,
+		uco-core:UcoObject ,
+		[
+			a owl:Restriction ;
+			rdfs:comment "TODO - Cardinality?"@en ;
+			owl:onProperty drafting:statuteCitation ;
+			rdfs:seeAlso sh-case-gufo:CriminalCharge-statuteCitation-shape ;
+			owl:someValuesFrom drafting:Statute ;
+		]
+		;
+	rdfs:comment "TODO - 'gufo:Object' chosen arbitrarily as gUFO hierarchy anchor."@en ;
+	rdfs:isDefinedBy <https://github.com/casework/CASE/issues/192> ;
+	.
+
+drafting:Statute
+	a
+		gufo:Kind ,
+		owl:Class
+		;
+	rdfs:subClassOf
+		gufo:Object ,
+		uco-core:UcoObject
+		;
+	rdfs:comment "TODO - 'gufo:Object' chosen arbitrarily as gUFO hierarchy anchor."@en ;
+	rdfs:isDefinedBy <https://github.com/casework/CASE/issues/214> ;
+	.
+
+drafting:statuteCitation
+	a owl:ObjectProperty ;
+	rdfs:range drafting:Statute ;
 	.
 
