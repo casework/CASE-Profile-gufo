@@ -23,7 +23,10 @@ example_ttls := $(wildcard example-*.ttl)
 validation_done_logs := $(foreach example_ttl,$(example_ttls),.$(example_ttl).validation.done.log)
 
 all: \
-  query-CASE-Issue-214-CQ1.json
+  query-CASE-Issue-214-CQ1.md
+
+.PRECIOUS: \
+  query-%.json
 
 .example-%.validation.done.log: \
   example-% \
@@ -51,7 +54,9 @@ check: \
 
 clean:
 	@rm -f \
-	  .*.done.log
+	  .*.done.log \
+	  query-*.json \
+	  query-*.md
 
 query-%.json: \
   query-%.sparql \
@@ -70,4 +75,12 @@ query-%.json: \
 	  __$@ \
 	  _$@
 	rm __$@
+	mv _$@ $@
+
+query-%.md: \
+  query-%.json \
+  $(top_srcdir)/query_results_json_to_md.py
+	python3 $(top_srcdir)/query_results_json_to_md.py \
+	  $< \
+	  _$@
 	mv _$@ $@
