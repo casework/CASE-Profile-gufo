@@ -1,0 +1,32 @@
+{
+    "head": {
+        "vars": [
+            "lChargeName",
+            "lStatuteLabel"
+        ]
+    },
+    "results": {
+        "bindings": [
+            {
+                "lChargeName": {
+                    "type": "literal",
+                    "value": "Count One: Money Laundering Conspiracy"
+                },
+                "lStatuteLabel": {
+                    "type": "literal",
+                    "value": "18 U.S.C. \u00a7 1956(h)"
+                }
+            },
+            {
+                "lChargeName": {
+                    "type": "literal",
+                    "value": "Count Two: Money Laundering Conspiracy"
+                },
+                "lStatuteLabel": {
+                    "type": "literal",
+                    "value": "18 U.S.C. \u00a7 1956(h)"
+                }
+            }
+        ]
+    }
+}
