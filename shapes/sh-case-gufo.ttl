@@ -6,7 +6,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix sh-case-example: <http://example.org/shapes/sh-case-example/> .
+@prefix sh-case-gufo: <http://example.org/shapes/sh-case-gufo/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <http://example.org/shapes/sh-case-gufo>
@@ -16,5 +16,34 @@
 		<http://example.org/ontology/case-gufo> ,
 		<http://example.org/shapes/sh-uco-gufo>
 		;
+	.
+
+sh-case-gufo:CriminalCharge-shape
+	a sh:NodeShape ;
+	sh:property sh-case-gufo:CriminalCharge-statuteCitation-shape ;
+	sh:targetClass drafting:CriminalCharge ;
+	.
+
+sh-case-gufo:CriminalCharge-statuteCitation-shape
+	a sh:PropertyShape ;
+	sh:minCount "1"^^xsd:integer ;
+	sh:path drafting:statuteCitation ;
+	.
+
+sh-case-gufo:Statute-shape
+	a sh:NodeShape ;
+	sh:targetClass drafting:Statute ;
+	.
+
+sh-case-gufo:statuteCitation-subjects-shape
+	a sh:NodeShape ;
+	sh:property sh-case-gufo:statuteCitation-subjects-statuteCitation-shape ;
+	sh:targetSubjectsOf drafting:statuteCitation ;
+	.
+
+sh-case-gufo:statuteCitation-subjects-statuteCitation-shape
+	a sh:PropertyShape ;
+	sh:class drafting:Statute ;
+	sh:path drafting:statuteCitation ;
 	.
 

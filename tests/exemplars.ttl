@@ -6,6 +6,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix sh-case-gufo: <http://example.org/shapes/sh-case-gufo/> .
 @prefix uco-core: <https://ontology.unifiedcyberontology.org/uco/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -16,7 +17,26 @@
 	sh:shapesGraph <http://example.org/shapes/sh-case-gufo> ;
 	.
 
-kb:UcoObject-24cf6699-3cb6-47fa-9f62-c972b0971752
-	a uco-core:UcoObject ;
+kb:CriminalCharge-4fc5aeb4-48c6-479f-8379-187f7265d057
+	a drafting:CriminalCharge ;
+	drafting:statuteCitation kb:Statute-8f33f027-285a-4ef2-9b12-04532acefce2 ;
+	.
+
+kb:Statue-9d7e5221-348a-43d1-a7f8-1e8c76239d82
+	a drafting:Statute ;
+	rdfs:seeAlso sh-case-gufo:statuteCitation-subjects-statuteCitation-shape ;
+	.
+
+kb:Statute-88d7de26-0b92-46c9-8f3c-3d19b2462876
+	a drafting:Statute ;
+	.
+
+kb:Statute-8f33f027-285a-4ef2-9b12-04532acefce2
+	a drafting:Statute ;
+	rdfs:seeAlso sh-case-gufo:CriminalCharge-statuteCitation-shape ;
+	.
+
+kb:Thing-6d31c445-ceec-441b-95ca-c70ccc046a45
+	drafting:statuteCitation kb:Statue-9d7e5221-348a-43d1-a7f8-1e8c76239d82 ;
 	.
 

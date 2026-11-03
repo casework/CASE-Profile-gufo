@@ -1,0 +1,50 @@
+# imports: http://example.org/ontology/case-gufo
+
+@prefix drafting: <http://example.org/ontology/drafting/> .
+@prefix gufo: <http://purl.org/nemo/gufo#> .
+@prefix kb: <http://example.org/kb/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix uco-core: <https://ontology.unifiedcyberontology.org/uco/core/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/kb>
+	a owl:Ontology ;
+	owl:imports <http://example.org/ontology/case-gufo> ;
+	sh:shapesGraph <http://example.org/shapes/sh-case-gufo> ;
+	.
+
+kb:Charge-1bb424f6-a83f-4526-bf6b-3b8129440f0d
+	a drafting:CriminalCharge ;
+	drafting:statuteCitation kb:Statute-2486941c-c49b-4d86-a29d-c3158d2c0ab3 ;
+	uco-core:description "Under 18 U.S.C. § 1956(h)." ;
+	uco-core:name "Count One: Money Laundering Conspiracy" ;
+	.
+
+kb:Charge-5109dbf1-371b-48e7-82a7-971085647763
+	a drafting:CriminalCharge ;
+	rdfs:comment "Note - free-form text in description contains typo of statute identifier."@en ;
+	drafting:statuteCitation kb:Statute-2486941c-c49b-4d86-a29d-c3158d2c0ab3 ;
+	uco-core:description "Under 18 U.S.C. § 1965(h)." ;
+	uco-core:name "Count Two: Money Laundering Conspiracy" ;
+	.
+
+kb:Charge-dfb4b98c-9f39-49f3-a7f3-fd10dd38b19b
+	a drafting:CriminalCharge ;
+	drafting:statuteCitation kb:Statute-cc2efba4-27d8-473f-828c-0f49e9c506de ;
+	uco-core:description "Under UK Proceeds of Crime Act 2002, s. 327" ;
+	uco-core:name "Count Three: Money Laundering Conspiracy" ;
+	.
+
+kb:Statute-2486941c-c49b-4d86-a29d-c3158d2c0ab3
+	a drafting:Statute ;
+	rdfs:label "18 U.S.C. § 1956(h)" ;
+	.
+
+kb:Statute-cc2efba4-27d8-473f-828c-0f49e9c506de
+	a drafting:Statute ;
+	rdfs:label "UK Proceeds of Crime Act 2002, s. 327" ;
+	.
+
